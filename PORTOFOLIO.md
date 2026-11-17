@@ -1,95 +1,157 @@
-# PORTOFOLIO ANGGOTA 5
+# PORTOFOLIO INDIVIDU
+## SISTEM ANTREAN PEKERJAAN DAN MONITORING PROSES LINUX
 
 ## 1. Identitas
-- Nama: Made Dwi Putra
-- NIM: 2510512204
-- Username GitHub: madedwi1102
-- Anggota: 5
-- Proyek: Sistem Antrean Pekerjaan dan Monitoring Proses Linux
 
-## 2. Tanggung Jawab
-Bertanggung jawab pada bagian monitoring sistem Linux, pengaturan hak akses pengguna, dokumentasi, dan pengujian Docker.
+- **Nama:** Made Dwi Putra
+- **NIM:** 2510512204
+- **Username GitHub:** madedwi1102
+- **Nomor Anggota:** 5
+- **Judul Proyek:** Sistem Antrean Pekerjaan dan Monitoring Proses Linux
 
-## 3. Kontribusi Pengerjaan
+## 2. Asal Proyek
+
+Proyek ini merupakan tugas kelompok mata kuliah Sistem Operasi yang dikerjakan secara kolaboratif untuk membangun sistem antrean pekerjaan dan monitoring proses pada Linux.
+
+**Repository utama kelompok:**
+
+https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
+
+**Repository pribadi:**
+
+https://github.com/madedwi1102/sistem_antrean_linux
+
+**Daftar Anggota Kelompok:**
+
+1. Muhammad Rijal Akbar — Anggota 1
+2. Fathimah Asrining Nurcahya Pertiwi — Anggota 2
+3. Jennar Iqlima Rakhman — Anggota 2
+4. Muhammad Haikal Irawan — Anggota 3
+5. Aghna Biwalaki Chodori — Anggota 4
+6. Made Dwi Putra — Anggota 5
+
+## 3. Kontribusi Pribadi
+
+Dalam proyek ini, saya bertanggung jawab pada bagian monitoring sistem Linux, pengaturan hak akses, pembuatan laporan, dan pengujian Docker.
 
 ### A. Monitoring Sistem Linux
-Pembuatan script `monitoring/monitoring.sh` untuk memantau penggunaan CPU, RAM, dan proses yang sedang berjalan. Hasil monitoring ditampilkan di terminal dan disimpan secara otomatis ke `output/monitoring.log`.
 
-**Bukti Monitoring RAM**
+Membuat script `monitoring/monitoring.sh` untuk memantau penggunaan CPU, RAM, dan proses yang sedang berjalan. Hasil monitoring ditampilkan di terminal dan disimpan ke dalam file `output/monitoring.log`.
 
-![Monitoring RAM](docs/monitoring-ram.png)
-
-**Bukti Monitoring CPU**
-
-![Monitoring CPU](docs/monitoring-cpu.png)
-
-**Bukti Monitoring Proses**
-
-![Monitoring Proses](docs/monitoring-proses.png)
-
-**Bukti Monitoring Otomatis**
-
-![Monitoring Otomatis](docs/monitoring-otomatis.png)
+Pengujian beban CPU juga dilakukan menggunakan `stress-ng` dengan metode `loop` untuk melihat perubahan penggunaan CPU melalui monitoring.
 
 ### B. Pengaturan Hak Akses
-Pengaturan hak akses menggunakan group `kelompok_proyek`. Pengujian dilakukan dengan dua akun berbeda:
-- `anggota1` berhasil mengakses direktori proyek.
-- `tamu` ditolak karena tidak memiliki izin akses.
 
-**Bukti Pengujian Akses Positif**
+Mengatur hak akses menggunakan group `kelompok_proyek`. Pengujian dilakukan menggunakan dua akun berbeda:
 
-![Uji Akses Positif](docs/uji-positif.png)
+- Akun `anggota1` berhasil mengakses direktori proyek.
+- Akun `tamu` tidak dapat mengakses direktori karena tidak memiliki izin yang sesuai.
 
-**Bukti Pengujian Akses Negatif**
+Pengujian ini dilakukan untuk memastikan bahwa akses terhadap direktori proyek dibatasi berdasarkan hak akses pengguna.
 
-![Uji Akses Negatif](docs/uji-akses-negatif.png)
+### C. Pembuatan Laporan
 
-### C. Pengujian Beban CPU
-Pengujian beban CPU menggunakan `stress-ng` dengan metode `loop`. Hasil pengujian berhasil dan aktivitas CPU dapat diamati melalui script monitoring.
+Membuat script `monitoring/buat_laporan.sh` untuk menghasilkan laporan otomatis ke dalam file `output/laporan.txt`.
 
-**Bukti Pengujian Beban CPU**
-
-![Pengujian Beban CPU](docs/monitoring-beban-cpu.png)
+Laporan berisi tanggal pembuatan, informasi pekerjaan, dan hasil monitoring sistem.
 
 ### D. Pengujian Docker
-Instalasi Docker Engine versi `29.1.3` dan penggunaan image Alpine versi `3.22`.
 
-Pengujian dilakukan melalui dua skenario:
-- **Pengujian positif:** Container berhasil membaca file `output/laporan.txt` menggunakan bind mount read-only.
-- **Pengujian negatif:** Container tidak dapat menulis ke file karena sistem menolak akses dengan pesan `Read-only file system`.
+Melakukan pengujian Docker menggunakan image `alpine:3.22` pada Docker Engine versi `29.1.3`.
 
-Verifikasi checksum dilakukan sebelum dan sesudah pengujian. Hasilnya sama, sehingga file laporan pada host tetap tidak berubah.
+Pengujian menggunakan bind mount read-only agar container dapat membaca file laporan dari host, tetapi tidak dapat mengubahnya.
 
-Bukti pengujian Docker dicatat dalam `docs/pengujian-docker-anggota5.md`.
+Hasil pengujian menunjukkan bahwa container berhasil membaca file, sedangkan percobaan menulis ditolak oleh sistem.
 
-## 4. Bukti Pekerjaan
-File hasil pengerjaan yang terdapat di repository:
-- `monitoring/monitoring.sh`
-- `output/monitoring.log`
-- `output/laporan.txt`
-- `docs/kontribusi-anggota5.md`
-- `docs/pengujian-docker-anggota5.md`
+## 4. Bukti Kontribusi
 
-Commit terkait:
-- `da46bbe` – Menambahkan monitoring otomatis dan log sistem.
-- `39d4d5a` – Menambahkan pengujian Docker read-only anggota 5.
+Berikut beberapa file yang menjadi bukti hasil pengerjaan:
 
-## 5. Konsep Sistem Operasi
-- **Process Management:** Pemantauan proses yang berjalan di Linux.
-- **CPU Management:** Pemantauan penggunaan CPU dan pengujian beban.
-- **Memory Management:** Pemantauan penggunaan RAM.
-- **Protection and Security:** Pengaturan hak akses menggunakan user, group, dan permission.
-- **Virtualisasi:** Penggunaan Docker container dengan pembatasan akses file.
+- `monitoring/monitoring.sh` — Script monitoring sistem.
+- `monitoring/buat_laporan.sh` — Script pembuatan laporan.
+- `output/monitoring.log` — Hasil pencatatan monitoring.
+- `output/laporan.txt` — Hasil laporan otomatis.
+- `docs/kontribusi-dwi.md` — Dokumentasi kontribusi anggota 5.
+- `docs/pengujian-docker-dwi.md` — Dokumentasi pengujian Docker.
 
-## 6. Kendala dan Solusi
-Pada pengaturan hak akses, akses akun `tamu` ditolak karena tidak memiliki izin. Hal tersebut sesuai dengan tujuan pengujian pembatasan akses.
+**Repository pribadi:**  
+https://github.com/madedwi1102/sistem_antrean_linux
 
-Pada pengujian Docker, penulisan file ditolak karena direktori menggunakan opsi read-only. Hasil tersebut menunjukkan bahwa pembatasan penulisan berjalan sesuai konfigurasi.
+Salah satu commit yang menjadi bukti perubahan dokumentasi:
 
-Pengujian awal `stress-ng` mengalami kendala, kemudian berhasil dijalankan menggunakan metode `loop`.
+`4bbd9bd` — rename dokumentasi anggota 5 menjadi dwi.
 
-## 7. Refleksi
-Pengerjaan bagian ini menunjukkan bagaimana monitoring dapat digunakan untuk melihat penggunaan sumber daya Linux. Pengaturan permission membantu membatasi akses pengguna, sedangkan Docker read-only dapat mencegah perubahan file dari dalam container.
+## 5. Skenario Pengujian Individu
 
-## 8. Status Pengerjaan
-Bagian monitoring, pengaturan hak akses, dokumentasi, dan pengujian Docker telah diselesaikan. Integrasi dengan sistem antrean utama serta pembuatan laporan otomatis dari sistem masih menunggu penggabungan hasil pekerjaan anggota kelompok lainnya.
+### A. Pengujian Monitoring
+
+**Tujuan:** Memastikan script dapat membaca dan mencatat informasi penggunaan sumber daya sistem.
+
+**Langkah pengujian:**
+1. Menjalankan script `monitoring/monitoring.sh`.
+2. Mengamati informasi CPU, RAM, dan proses yang ditampilkan.
+3. Memeriksa file `output/monitoring.log`.
+
+**Hasil:** Informasi monitoring berhasil ditampilkan dan dicatat ke dalam file log.
+
+### B. Pengujian Hak Akses
+
+**Tujuan:** Memastikan hanya pengguna yang memiliki izin yang dapat mengakses direktori proyek.
+
+**Langkah pengujian:**
+1. Mencoba mengakses direktori menggunakan akun `anggota1`.
+2. Mencoba mengakses direktori menggunakan akun `tamu`.
+3. Membandingkan hasil akses kedua akun.
+
+**Hasil:** Akun `anggota1` berhasil mengakses direktori, sedangkan akun `tamu` ditolak.
+
+### C. Pengujian Pembuatan Laporan
+
+**Tujuan:** Memastikan script dapat menghasilkan laporan sistem secara otomatis.
+
+**Langkah pengujian:**
+1. Menjalankan script `monitoring/buat_laporan.sh`.
+2. Memeriksa file `output/laporan.txt`.
+3. Memastikan informasi laporan berhasil ditulis.
+
+**Hasil:** File laporan berhasil dibuat dan berisi informasi yang dihasilkan oleh script.
+
+### D. Pengujian Docker Read-Only
+
+**Tujuan:** Memastikan container dapat membaca file dari host tanpa dapat mengubahnya.
+
+**Langkah pengujian:**
+1. Menjalankan container Alpine dengan bind mount read-only.
+2. Membaca file laporan melalui container.
+3. Mencoba menulis atau mengubah file melalui container.
+4. Membandingkan checksum file sebelum dan sesudah pengujian.
+
+**Hasil:** Container berhasil membaca file, tetapi percobaan penulisan ditolak dengan pesan `Read-only file system`. Nilai checksum sebelum dan sesudah pengujian tetap sama.
+
+Checksum yang diperoleh:
+
+`459ac86ad5cb668adc0f0a902e64054b5ac2e9ae0b2726a356f84fe92f728d86`
+
+## 6. Analisis Konsep Sistem Operasi
+
+Beberapa konsep Sistem Operasi yang diterapkan dalam pengerjaan bagian ini adalah:
+
+- **Process Management:** Memantau proses yang sedang berjalan di Linux.
+- **CPU Management:** Mengamati penggunaan CPU dan melakukan pengujian beban.
+- **Memory Management:** Memantau penggunaan RAM.
+- **Protection and Security:** Mengatur hak akses menggunakan user, group, dan permission.
+- **Virtualisasi dan Isolasi:** Menggunakan Docker container dengan pembatasan akses file melalui bind mount read-only.
+
+## 7. Kendala dan Solusi
+
+Selama pengerjaan, terdapat beberapa kendala yang ditemukan.
+
+- **Hak akses pengguna:** Akun `tamu` tidak dapat mengakses direktori karena belum memiliki izin. Hal ini sesuai dengan tujuan pengujian pembatasan akses.
+- **Pengujian Docker:** Container tidak dapat menulis file karena direktori dipasang menggunakan opsi read-only. Pengujian ini membuktikan pembatasan penulisan berjalan dengan baik.
+- **Pengujian beban CPU:** Pengujian awal menggunakan `stress-ng` mengalami kendala, kemudian berhasil dijalankan menggunakan metode `loop`.
+
+## 8. Refleksi
+
+Melalui pengerjaan proyek ini, saya memahami cara memantau penggunaan CPU, RAM, dan proses Linux, mengatur hak akses pengguna, serta membuat laporan menggunakan shell script. Saya juga memahami penerapan Docker dengan bind mount read-only untuk melindungi file.
+
+Hal yang masih perlu saya pelajari adalah integrasi setiap komponen ke dalam sistem utama, serta pengujian sistem secara menyeluruh agar dapat memahami hubungan antarbagian dengan lebih baik.
