@@ -30,7 +30,7 @@
   - `evidence/dwi-laporan-final.txt`
   - `evidence/dwi-akses.txt`
   - `evidence/dwi-docker.txt`
-  - **Tautan Commit / Pull Request:** https://github.com/madedwi1102/proyek-so-5b/commits/main
+  - **Tautan Commit / Pull Request:** https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
 
 ## 5. Skenario Individu
 - **Tujuan:** Memastikan file laporan tidak berubah atau rusak saat diproses, membatasi akses folder kerja hanya untuk tim (`labqueue`), serta menjaga agar kontainer Docker tidak bisa mengubah data bukti di sistem utama (*host*).
