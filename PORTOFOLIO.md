@@ -7,7 +7,7 @@
 - **Judul Proyek:** Sistem Antrean Tugas (*Job Queue*) Terisolasi Berbasis Bash dan Docker
 
 ## 2. Asal Proyek
-- **Tautan Repository Utama:** __UPSTREAM_URL__
+- **Tautan Repository Utama:** (https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux)
 - **Anggota Kelompok:**
   1. Aghna Biwalaki Chodori (2510512177) — Pengujian & Eksekusi Antrean
   2. Fathimah Asrining Nurcahya Pertiwi (2510512199) — Penjadwalan Antrean FIFO (Anggota 2A)
@@ -30,6 +30,7 @@
   - `evidence/dwi-laporan-final.txt`
   - `evidence/dwi-akses.txt`
   - `evidence/dwi-docker.txt`
+  - **Tautan Commit / Pull Request:** https://github.com/madedwi1102/proyek-so-5b/commits/main
 
 ## 5. Skenario Individu
 - **Tujuan:** Memastikan file laporan tidak berubah atau rusak saat diproses, membatasi akses folder kerja hanya untuk tim (`labqueue`), serta menjaga agar kontainer Docker tidak bisa mengubah data bukti di sistem utama (*host*).
