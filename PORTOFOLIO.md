@@ -1,157 +1,59 @@
-# PORTOFOLIO INDIVIDU
-## SISTEM ANTREAN PEKERJAAN DAN MONITORING PROSES LINUX
+# Portofolio Kontribusi dan Refleksi Individu
 
 ## 1. Identitas
-
-- **Nama:** Made Dwi Putra
+- **Nama:** MADE DWI PUTRA
 - **NIM:** 2510512204
-- **Username GitHub:** madedwi1102
-- **Nomor Anggota:** 5
-- **Judul Proyek:** Sistem Antrean Pekerjaan dan Monitoring Proses Linux
+- **Kelompok:** 5B (`proyek-so-5b`)
+- **Judul Proyek:** Sistem Antrean Pekerjaan (*Job Queue*) Terisolasi Berbasis Bash dan Docker
 
 ## 2. Asal Proyek
-
-Proyek ini merupakan tugas kelompok mata kuliah Sistem Operasi yang dikerjakan secara kolaboratif untuk membangun sistem antrean pekerjaan dan monitoring proses pada Linux.
-
-**Repository utama kelompok:**
-
-https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
-
-**Repository pribadi:**
-
-https://github.com/madedwi1102/sistem_antrean_linux
-
-**Daftar Anggota Kelompok:**
-
-1. Muhammad Rijal Akbar — Anggota 1
-2. Fathimah Asrining Nurcahya Pertiwi — Anggota 2
-3. Jennar Iqlima Rakhman — Anggota 2
-4. Muhammad Haikal Irawan — Anggota 3
-5. Aghna Biwalaki Chodori — Anggota 4
-6. Made Dwi Putra — Anggota 5
+- **Tautan Repository Utama:** https://github.com/username-ketua/proyek-so-5b
+- **Nama Seluruh Anggota:**
+  1. AGHNA BIWALAKI CHODORI (2510512177) — Pengujian & Eksekusi Antrean
+  2. FATHIMAH ASRINING NURCAHYA PERTIWI (2510512199) — Anggota 2A (Penjadwalan Antrean FIFO)
+  3. JENNAR IQLIMA RAKHMAN (2510512176) — Anggota 2B (Penguncian Eksklusif `flock`)
+  4. MADE DWI PUTRA (2510512204) — Anggota 5 (Pemantauan Sistem, Keamanan Hak Akses, & Isolasi Docker)
+  5. MUHAMMAD HAIKAL IRAWAN (2510512185) — Anggota 3 (Pelacakan PID & Status Eksekusi)
+  6. MUHAMMAD RIJAL AKBAR (2510512173) — Validasi Input & Pengajuan Tiket
 
 ## 3. Kontribusi Pribadi
-
-Dalam proyek ini, saya bertanggung jawab pada bagian monitoring sistem Linux, pengaturan hak akses, pembuatan laporan, dan pengujian Docker.
-
-### A. Monitoring Sistem Linux
-
-Membuat script `monitoring/monitoring.sh` untuk memantau penggunaan CPU, RAM, dan proses yang sedang berjalan. Hasil monitoring ditampilkan di terminal dan disimpan ke dalam file `output/monitoring.log`.
-
-Pengujian beban CPU juga dilakukan menggunakan `stress-ng` dengan metode `loop` untuk melihat perubahan penggunaan CPU melalui monitoring.
-
-### B. Pengaturan Hak Akses
-
-Mengatur hak akses menggunakan group `kelompok_proyek`. Pengujian dilakukan menggunakan dua akun berbeda:
-
-- Akun `anggota1` berhasil mengakses direktori proyek.
-- Akun `tamu` tidak dapat mengakses direktori karena tidak memiliki izin yang sesuai.
-
-Pengujian ini dilakukan untuk memastikan bahwa akses terhadap direktori proyek dibatasi berdasarkan hak akses pengguna.
-
-### C. Pembuatan Laporan
-
-Membuat script `monitoring/buat_laporan.sh` untuk menghasilkan laporan otomatis ke dalam file `output/laporan.txt`.
-
-Laporan berisi tanggal pembuatan, informasi pekerjaan, dan hasil monitoring sistem.
-
-### D. Pengujian Docker
-
-Melakukan pengujian Docker menggunakan image `alpine:3.22` pada Docker Engine versi `29.1.3`.
-
-Pengujian menggunakan bind mount read-only agar container dapat membaca file laporan dari host, tetapi tidak dapat mengubahnya.
-
-Hasil pengujian menunjukkan bahwa container berhasil membaca file, sedangkan percobaan menulis ditolak oleh sistem.
+- **Script:** Mengembangkan dan menjalankan skrip pemantauan sistem (`scripts/monitor_report.sh`) untuk menghasilkan laporan ringkasan operasional antrean beserta nilai hash `SHA-256`.
+- **Konfigurasi:** Mengatur kepemilikan direktori operasional ke grup `labqueue` dengan izin SetGID `2770` serta konfigurasi *bind mount* mode `readonly` pada kontainer Docker `alpine:3.20`.
+- **Pengujian:** Melaksanakan pengujian positif dan negatif yang mencakup verifikasi integritas laporan dengan checksum `SHA-256`, pengujian penolakan akses pengguna non-grup (`guest_user`), serta pengujian penolakan modifikasi berkas di dalam volume Docker `readonly`.
+- **Dokumentasi:** Menyusun dokumentasi teknis (`docs/dokumentasi_teknis.md`), skenario pengujian (`tests/README.md`), serta merapikan arsip bukti pengujian pada direktori `evidence/`.
 
 ## 4. Bukti Kontribusi
+- **Berkas Skrip:** `scripts/monitor_report.sh`
+- **Berkas Bukti Pengujian:**
+  - `evidence/dwi-checksum-sebelum.txt`
+  - `evidence/dwi-checksum-sesudah.txt`
+  - `evidence/dwi-laporan-final.txt`
+  - `evidence/dwi-akses.txt`
+  - `evidence/dwi-docker.txt`
+- **Tautan Commit / Pull Request:** https://github.com/username-dwi/proyek-so-5b/commits/main
 
-Berikut beberapa file yang menjadi bukti hasil pengerjaan:
-
-- `monitoring/monitoring.sh` — Script monitoring sistem.
-- `monitoring/buat_laporan.sh` — Script pembuatan laporan.
-- `output/monitoring.log` — Hasil pencatatan monitoring.
-- `output/laporan.txt` — Hasil laporan otomatis.
-- `docs/kontribusi-dwi.md` — Dokumentasi kontribusi anggota 5.
-- `docs/pengujian-docker-dwi.md` — Dokumentasi pengujian Docker.
-
-**Repository pribadi:**  
-https://github.com/madedwi1102/sistem_antrean_linux
-
-Salah satu commit yang menjadi bukti perubahan dokumentasi:
-
-`4bbd9bd` — rename dokumentasi anggota 5 menjadi dwi.
-
-## 5. Skenario Pengujian Individu
-
-### A. Pengujian Monitoring
-
-**Tujuan:** Memastikan script dapat membaca dan mencatat informasi penggunaan sumber daya sistem.
-
-**Langkah pengujian:**
-1. Menjalankan script `monitoring/monitoring.sh`.
-2. Mengamati informasi CPU, RAM, dan proses yang ditampilkan.
-3. Memeriksa file `output/monitoring.log`.
-
-**Hasil:** Informasi monitoring berhasil ditampilkan dan dicatat ke dalam file log.
-
-### B. Pengujian Hak Akses
-
-**Tujuan:** Memastikan hanya pengguna yang memiliki izin yang dapat mengakses direktori proyek.
-
-**Langkah pengujian:**
-1. Mencoba mengakses direktori menggunakan akun `anggota1`.
-2. Mencoba mengakses direktori menggunakan akun `tamu`.
-3. Membandingkan hasil akses kedua akun.
-
-**Hasil:** Akun `anggota1` berhasil mengakses direktori, sedangkan akun `tamu` ditolak.
-
-### C. Pengujian Pembuatan Laporan
-
-**Tujuan:** Memastikan script dapat menghasilkan laporan sistem secara otomatis.
-
-**Langkah pengujian:**
-1. Menjalankan script `monitoring/buat_laporan.sh`.
-2. Memeriksa file `output/laporan.txt`.
-3. Memastikan informasi laporan berhasil ditulis.
-
-**Hasil:** File laporan berhasil dibuat dan berisi informasi yang dihasilkan oleh script.
-
-### D. Pengujian Docker Read-Only
-
-**Tujuan:** Memastikan container dapat membaca file dari host tanpa dapat mengubahnya.
-
-**Langkah pengujian:**
-1. Menjalankan container Alpine dengan bind mount read-only.
-2. Membaca file laporan melalui container.
-3. Mencoba menulis atau mengubah file melalui container.
-4. Membandingkan checksum file sebelum dan sesudah pengujian.
-
-**Hasil:** Container berhasil membaca file, tetapi percobaan penulisan ditolak dengan pesan `Read-only file system`. Nilai checksum sebelum dan sesudah pengujian tetap sama.
-
-Checksum yang diperoleh:
-
-`459ac86ad5cb668adc0f0a902e64054b5ac2e9ae0b2726a356f84fe92f728d86`
+## 5. Skenario Individu
+- **Tujuan:** Memastikan integritas berkas laporan sistem menggunakan checksum `SHA-256`, membatasi akses tulis direktori kerja hanya untuk anggota grup `labqueue`, serta mencegah modifikasi bukti pengujian dari dalam kontainer Docker.
+- **Langkah Positif:** Menjalankan `bash scripts/monitor_report.sh` untuk menghasilkan laporan sistem (`laporan.txt`) dan mencocokkan nilai hash `SHA-256` sebelum dan sesudah proses berjalan.
+- **Langkah Negatif:**
+  1. Mencoba membuat berkas di dalam direktori antrean menggunakan akun di luar grup `labqueue` (`guest_user`).
+  2. Menjalankan kontainer `alpine:3.20` dengan parameter `--mount type=bind,source="$(pwd)/evidence",target=/data,readonly` lalu menjalankan `touch /data/uji_tulis.txt`.
+- **Hasil:**
+  - Laporan pemantauan terbentuk lengkap dengan nilai hash `SHA-256` yang konsisten.
+  - Percobaan akses oleh `guest_user` ditolak sistem operasi dengan galat `Permission denied` (exit code `13`).
+  - Percobaan penulisan berkas di dalam kontainer Docker ditolak dengan pesan `Read-only file system`.
+- **Verifikasi:** Membandingkan nilai hash pada `evidence/dwi-checksum-sebelum.txt` dan `evidence/dwi-checksum-sesudah.txt`, serta memeriksa rekaman keluaran galat pada `evidence/dwi-akses.txt` dan `evidence/dwi-docker.txt`.
 
 ## 6. Analisis Konsep Sistem Operasi
+- **Manajemen Izin Berkas & Grup (Access Control):** Penggunaan kepemilikan grup `labqueue` dan izin `2770` (SetGID) menerapkan prinsip *least privilege* pada sistem berkas Linux. Hanya pengguna di dalam grup `labqueue` yang memiliki hak baca, tulis, dan eksekusi, sementara bit SetGID memastikan setiap berkas baru di dalam direktori otomatis mewarisi grup `labqueue`.
+- **Integritas Data (Cryptographic Hashing):** Penerapan `sha256sum` menjamin keutuhan data laporan operasional sehingga setiap perubahan atau kerusakan berkas dapat langsung terdeteksi.
+- **Isolasi Lingkungan & Virtualisasi Tingkat OS (Containerization):** Pemasangan direktori `evidence/` ke dalam kontainer `alpine:3.20` dengan opsi `readonly` memisahkan ruang nama sistem berkas (*mount namespace*) kontainer dari *host*, sehingga proses di dalam kontainer tidak dapat mengubah ataupun menghapus data bukti pada sistem *host*.
 
-Beberapa konsep Sistem Operasi yang diterapkan dalam pengerjaan bagian ini adalah:
-
-- **Process Management:** Memantau proses yang sedang berjalan di Linux.
-- **CPU Management:** Mengamati penggunaan CPU dan melakukan pengujian beban.
-- **Memory Management:** Memantau penggunaan RAM.
-- **Protection and Security:** Mengatur hak akses menggunakan user, group, dan permission.
-- **Virtualisasi dan Isolasi:** Menggunakan Docker container dengan pembatasan akses file melalui bind mount read-only.
-
-## 7. Kendala dan Solusi
-
-Selama pengerjaan, terdapat beberapa kendala yang ditemukan.
-
-- **Hak akses pengguna:** Akun `tamu` tidak dapat mengakses direktori karena belum memiliki izin. Hal ini sesuai dengan tujuan pengujian pembatasan akses.
-- **Pengujian Docker:** Container tidak dapat menulis file karena direktori dipasang menggunakan opsi read-only. Pengujian ini membuktikan pembatasan penulisan berjalan dengan baik.
-- **Pengujian beban CPU:** Pengujian awal menggunakan `stress-ng` mengalami kendala, kemudian berhasil dijalankan menggunakan metode `loop`.
+## 7. Kendala dan Penyelesaian
+- **Perbedaan Jalur Keluaran Laporan:** Perintah `cat evidence/laporan.txt` sempat menghasilkan galat `No such file or directory` karena skrip `scripts/monitor_report.sh` menyimpan laporan ke direktori `output/laporan.txt`. Penyelesaian dilakukan dengan memeriksa lokasi keluaran skrip dan menyimpan salinan laporan terverifikasi ke `evidence/dwi-laporan-final.txt`.
+- **Pencarian Berkas Catatan Docker:** Pencarian berkas `docker.txt` di direktori utama gagal karena catatan pengujian tersimpan di dalam folder bukti dengan nama `evidence/dwi-docker.txt`. Penyelesaian dilakukan dengan menelusuri direktori menggunakan perintah `find . -name "*docker*"`.
+- **Penghentian Sesi Shell Interaktif Docker:** Menekan `Ctrl+C` di dalam prompt kontainer Alpine (`/ #`) hanya memunculkan karakter interupsi `^C` tanpa keluar dari kontainer. Penyelesaian dilakukan dengan mengetikkan perintah `exit` untuk menutup sesi kontainer secara bersih.
 
 ## 8. Refleksi
-
-Melalui pengerjaan proyek ini, saya memahami cara memantau penggunaan CPU, RAM, dan proses Linux, mengatur hak akses pengguna, serta membuat laporan menggunakan shell script. Saya juga memahami penerapan Docker dengan bind mount read-only untuk melindungi file.
-
-Hal yang masih perlu saya pelajari adalah integrasi setiap komponen ke dalam sistem utama, serta pengujian sistem secara menyeluruh agar dapat memahami hubungan antarbagian dengan lebih baik.
+- **Hal yang Sudah Dikuasai:** Penerapan izin direktori khusus Linux (`chmod 2770` dan `chown`), verifikasi integritas data menggunakan `sha256sum`, isolasi volume `readonly` pada Docker, serta alur kolaborasi repository menggunakan Git (*fork*, *commit*, dan *push*).
+- **Hal yang Masih Perlu Dipelajari:** Otomatisasi pengujian skrip menggunakan *CI/CD pipeline* (seperti GitHub Actions) serta konfigurasi pembatasan kapabilitas kernel tingkat lanjut (*Linux capabilities* dan *seccomp*) pada kontainer Docker.
