@@ -1,7 +1,0 @@
-Worker berhasil mendapatkan lock.
-Worker mulai memproses antrean.
-Mengambil: Pekerjaan Lock
-Mulai memproses: Pekerjaan Lock
-Selesai memproses: Pekerjaan Lock
-Antrean kosong.
-Worker selesai.
